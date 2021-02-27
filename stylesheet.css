@@ -1,13 +1,15 @@
 :root {
     --mainBlue: #093160;
     --white: #ffffff;
-    --mainGreen: #59FFB0;
+    --mainGreen: #59ffb0;
     --textBody: #212121;
-    --lightBlue: #9DADBF;
+    --lightBlue: #9dadbf;
+    --lightGray: #e1e6ec;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -19,25 +21,33 @@ h1 {
     color: var(--mainBlue);
 }
 
-select {
-    padding: 8px 16px;
-    height: 3rem;
-}
-
 button {
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    color: var(--mainBlue);
+    outline: none;
+    font-family: inherit;
 }
 
-input {
+input[type="text"] {
     align-items: center;
-    background-color: #FFFFFF;
-    border: 1px solid #E6EAEF;
+    background-color: #ffffff;
+    border: 1px solid #e6eaef;
     box-sizing: border-box;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
-    width: 10rem;
+    width: 5rem;
     font-family: inherit;
     font-size: 1rem;
+    color: var(--mainBlue);
+    font-weight: 500;
+    height: 3rem;
+}
+
+p {
+    margin: 0;
 }
 
 
@@ -54,12 +64,13 @@ input {
     display: flex;
     position: absolute;
     flex-direction: column;
-    border: 1px solid #E6EAEF;
+    border: 1px solid #e6eaef;
     box-sizing: border-box;
     border-radius: 0.25rem;
     width: 100%;
     opacity: 1;
-    transition: all ease-in-out 500ms;
+    transition: all 500ms ease-in-out 100ms;
+    height: auto;
 }
 
 .dropdown-radio {
@@ -70,39 +81,107 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFFFFF;
-    border: 1px solid #E6EAEF;
+    background-color: #ffffff;
+    border: 1px solid #e6eaef;
     box-sizing: border-box;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
-    width: 10rem;
+    min-width: 10rem;
     font-family: inherit;
     font-size: 1rem;
+    height: 3rem;
+    color: var(--mainBlue);
+    font-weight: 500;
 }
 
 .dropdown-option {
     padding: 0.5rem 1rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
+    transition: background-color 100ms ease-in;
 }
 
 .dropdown-option:hover {
-    background-color: var(--lightBlue);
+    background-color: var(--lightGray);
 }
 
 .dropdown-arrow {
     background-image: url(./dropdown-arrow.svg);
+    background-repeat: no-repeat;
     width: 1.5rem;
     height: 1.5rem;
-    transition: all 200ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 
 
 /* Dropdown  End */
 
+
+/* Slider */
+
+.slider-group {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.slider-input {
+    justify-content: center;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 0.5rem;
+    background: var(--lightGray);
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 1rem;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    border: 1px solid #e1e6ec;
+    box-shadow: 2px 7px 24px rgba(9, 49, 96, 0.12);
+}
+
+.slider::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-range-progress {
+    background: red;
+}
+
+input[type="range"]::-moz-range-progress {
+    background: red;
+}
+
+
+/* Containers */
+
 .container {
     display: grid;
-    grid-template-columns: auto minmax(min(100%, 350px), 50%) auto;
+    grid-template-columns: auto minmax(16rem, 40rem) auto;
     column-gap: 1rem;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
 }
 
 .chatbox-container {
@@ -115,22 +194,25 @@ input {
     display: grid;
     grid-auto-flow: row;
     row-gap: 1rem;
-    /* justify-content: center; */
 }
 
 .bubble {
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 2px 7px 24px rgba(9, 49, 96, 0.12);
     border-radius: 0.8rem;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column;
     justify-content: center;
     column-gap: 1rem;
     align-items: center;
     padding: 1rem 2rem;
     min-height: 5rem;
     box-sizing: border-box;
+    color: var(--mainBlue);
 }
+
+
+/* Avatars */
 
 .avatar {
     border-radius: 100%;
@@ -148,13 +230,122 @@ input {
 }
 
 
+/* Pricing Table */
+
+.pricing-table {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient( 180deg, rgba(244, 244, 244, 0) 50.51%, #f4f4f4 50.52%);
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0;
+}
+
+.pricing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+    box-shadow: 2px 7px 24px rgba(9, 49, 96, 0.12);
+    border-radius: 0.8rem;
+    margin-right: 2rem;
+}
+
+.pricing-container.competitor {
+    background-color: #ffffff;
+}
+
+.pricing-container.move-bot {
+    background-color: var(--mainBlue);
+}
+
+.price {
+    font-weight: 600;
+    font-size: 48px;
+    margin: 1rem 0 1rem 0;
+    color: var(--mainBlue)
+}
+
+.pricing-container.move-bot .price {
+    color: var(--mainGreen);
+}
+
+.estimated {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--lightBlue);
+    margin-bottom: 0.5rem;
+}
+
+.time-estimate {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-container.move-bot .time-estimate {
+    color: #ffffff;
+}
+
+.competitor-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--textBody);
+}
+
+button.get-quote {
+    padding: 0.75rem 1rem;
+    background-color: var(--mainGreen);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 100ms ease-in;
+}
+
+button.get-quote:hover {
+    background-color: #4FE79E;
+}
+
+
+/* Bubble Types */
+
+
 /* General Classes */
 
 .hidden {
     display: none;
-    opacity: 0;
+    visibility: 0;
 }
 
 .rotate {
     transform: rotate(-180deg) translate(2px, 2px);
+}
+
+@media (max-width: 700px) {
+    .container {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: none;
+        row-gap: 1rem;
+        padding: 1rem;
+    }
+    .bubble {
+        grid-auto-flow: row;
+        justify-items: center;
+        row-gap: 0.5rem;
+    }
+    .pricing-table {
+        flex-direction: column;
+    }
+    .pricing-container {
+        width: 40%;
+        margin-bottom: 1rem;
+    }
+    .avatar.user {
+        justify-self: start;
+    }
+    .avatar.bot {
+        justify-self: end;
+    }
 }
