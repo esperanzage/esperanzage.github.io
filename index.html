@@ -20,7 +20,7 @@
         <div class="avatar user"></div>
         <div class="chatbox-container">
             <div class="user-chat">
-                <div class="user-type bubble">
+                <div class="bubble user-type">
                     <p>I'm</p>
                     <div class="dropdown-container">
                         <button id="dpdwn-button" class="dropdown-button">
@@ -54,18 +54,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="transfer-size bubble person">
+                <div class="bubble dropdown-radio person">
                     <div class="slider-group">
                         <div class="slider-input">
                             <p>moving</p>
-                            <input type="text" value="350" />
+                            <input type="number" id="number-input" value="0" />
                         </div>
                         <div class="slider-container">
-                            <input type="range" min="1" max="1000" value="0" class="slider" id="myRange" />
+                            <input type="range" min="0" max="1000" value="0" step="5" class="slider" id="myRange" />
                         </div>
                     </div>
                 </div>
-                <div class="transfer-source bubble person">
+                <div class="bubble transfer-source person">
                     <p>from</p>
                     <div class="dropdown-container">
                         <button id="dpdwn-button" class="dropdown-button">
