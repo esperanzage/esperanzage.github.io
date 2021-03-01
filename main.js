@@ -1,35 +1,56 @@
 const dropdowns = Array.from(document.getElementsByClassName("dropdown-container"));
 const sliderGroup = Array.from(document.getElementsByClassName("slider-group"));
+const pricingBoxes = Array.from(document.querySelectorAll(".pricing-container"));
+
 
 
 
 // General Functions
 
-const toggleClass = (element, className) => {
-    element.classList.toggle(className);
-};
+const toggleClass = (element, className) => element.classList.toggle(className);
 
-const setElementContent = (target, content) => {
-    target.textContent = content;
+const setElementContent = (target, content) => target.textContent = content;
+
+const getMoveBotPricing = (gigas) => (gigas * 0.4).toFixed(0);
+
+const getCompetitorPricing = (gigas) => (gigas * 0.4 * 1.3).toFixed(0);
+
+const updateBoxes = (value) => {
+    pricingBoxes.forEach(box => {
+        let priceNumber = box.querySelector(".price");
+
+        if (box.classList.contains('competitor')) {
+            setElementContent(priceNumber, ("$" + getCompetitorPricing(value)))
+        } else {
+            setElementContent(priceNumber, ("$" + getMoveBotPricing(value)));
+        }
+    })
 };
 
 
 //Slider Behavior
 
-console.log(sliderGroup);
 
 sliderGroup.forEach(group => {
     const sliderInput = group.querySelector("#number-input");
-    const rangeSlider = group.querySelector("#myRange")
+    const rangeSlider = group.querySelector("#myRange");
 
-    rangeSlider.oninput = () => {
-        sliderInput.value = rangeSlider.value;
-    };
+    if (rangeSlider.classList.contains('size')) {
+
+        rangeSlider.oninput = () => {
+            sliderInput.value = rangeSlider.value;
+            updateBoxes(rangeSlider.value);
+        };
+
+    } else {
+        rangeSlider.oninput = () => {
+            sliderInput.value = rangeSlider.value;
+        };
+    }
 
     sliderInput.oninput = () => {
         rangeSlider.value = sliderInput.value;
-    }
-
+    };
 
 });
 
@@ -65,3 +86,6 @@ dropdowns.forEach(dropdown => {
     });
 
 });
+
+
+// Pricing

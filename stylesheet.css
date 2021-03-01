@@ -197,10 +197,12 @@ input[type="range"]::-moz-range-progress {
     display: grid;
     grid-auto-flow: row;
     row-gap: 1rem;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
 
 .bot-chat {
-    animation: 1000ms ease-out 0ms 1 slideInFromBottom;
+    animation: 500ms ease-out 500ms 1 slideInFromBottom;
 }
 
 .bubble {
@@ -264,6 +266,7 @@ input[type="range"]::-moz-range-progress {
     box-shadow: 2px 7px 24px rgba(9, 49, 96, 0.12);
     border-radius: 0.8rem;
     margin-right: 2rem;
+    transition: all 500ms ease-in;
 }
 
 .pricing-container.competitor {
