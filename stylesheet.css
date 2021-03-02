@@ -227,6 +227,16 @@ input[type="range"]::-moz-range-progress {
     justify-content: center;
 }
 
+.size-output {
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e6eaef;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    width: 6rem;
+}
+
 
 /* Avatars */
 
@@ -262,11 +272,12 @@ input[type="range"]::-moz-range-progress {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 1.5rem 2.5rem;
     box-shadow: 2px 7px 24px rgba(9, 49, 96, 0.12);
     border-radius: 0.8rem;
     margin-right: 2rem;
     transition: all 500ms ease-in;
+    min-width: 8rem;
 }
 
 .pricing-container.competitor {
@@ -281,7 +292,9 @@ input[type="range"]::-moz-range-progress {
     font-weight: 600;
     font-size: 48px;
     margin: 1rem 0 1rem 0;
-    color: var(--mainBlue)
+    color: var(--mainBlue);
+    min-width: 10rem;
+    text-align: center;
 }
 
 .pricing-container.move-bot .price {

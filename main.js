@@ -16,6 +16,7 @@ const getMoveBotPricing = (gigas) => (gigas * 0.4).toFixed(0);
 const getCompetitorPricing = (gigas) => (gigas * 0.4 * 1.3).toFixed(0);
 
 const updateBoxes = (value) => {
+    console.log(value);
     pricingBoxes.forEach(box => {
         let priceNumber = box.querySelector(".price");
 
@@ -27,20 +28,57 @@ const updateBoxes = (value) => {
     })
 };
 
+const makeLogSlider = (slider, output, minval, maxval) => {
+    const minpos = slider.min || 0;
+    const maxpos = slider.max || 100;
+    const minlval = Math.log(minval || 50);
+    const maxlval = Math.log(maxval || 100000);
+    const scale = (maxlval - minlval) / (maxpos - minpos);
+
+    const updateSlider = () => {
+        let position = slider.value;
+        let valueFromPosition = Math.exp((position - minpos) * scale + minlval);
+
+
+        if (valueFromPosition < 1024) {
+            output.textContent = valueFromPosition.toFixed(0) + " GB";
+        } else {
+            outputValue = valueFromPosition / 1024;
+            output.textContent = outputValue.toFixed(0) + " TB";
+        }
+
+
+        updateBoxes(valueFromPosition);
+
+
+    };
+    updateSlider();
+    slider.oninput = updateSlider;
+
+    // output.oninput = () => {
+    //     console.log("output.oninput")
+    //     let inputValue = output.value;
+    //     let positionFromValue = minpos + (Math.log(inputValue) - minlval) / scale;
+
+    //     slider.value = positionFromValue;
+    //     updateBoxes(positionFromValue);
+
+    // }
+
+}
+
 
 //Slider Behavior
 
 
 sliderGroup.forEach(group => {
-    const sliderInput = group.querySelector("#number-input");
+    // const sliderInput = group.querySelector("#number-input");
     const rangeSlider = group.querySelector("#myRange");
+    const outputContainer = group.querySelector(".size-output")
 
     if (rangeSlider.classList.contains('size')) {
 
-        rangeSlider.oninput = () => {
-            sliderInput.value = rangeSlider.value;
-            updateBoxes(rangeSlider.value);
-        };
+        makeLogSlider(rangeSlider, outputContainer, 0, 50 * 1024);
 
     } else {
         rangeSlider.oninput = () => {
@@ -48,9 +86,9 @@ sliderGroup.forEach(group => {
         };
     }
 
-    sliderInput.oninput = () => {
-        rangeSlider.value = sliderInput.value;
-    };
+    // sliderInput.oninput = () => {
+    //     rangeSlider.value = sliderInput.value;
+    // };
 
 });
 
