@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
@@ -9,26 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./stylesheet.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <script src="main.js" async defer></script>
 
     <h1>Get your data moving</h1>
     <div class="container">
-        <div class="avatar user"></div>
-        <div class="chatbox-container">
-            <div class="user-chat">
-                <div class="bubble user-type">
-                    <p>I'm</p>
-                    <div class="dropdown-container">
-                        <button id="dpdwn-button" class="dropdown-button">
+      <div class="avatar user"></div>
+      <div class="chatbox-container">
+        <div class="user-chat">
+          <div class="bubble user-type">
+            <p>I'm</p>
+            <div class="dropdown-container user-type">
+              <button id="dpdwn-button" class="dropdown-button user-type">
                 an individual
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
               </button>
-                        <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-                            <label class="dropdown-option" for="select-person">an individual</label
+              <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-person"
+                  >an individual</label
                 >
                 <input
                   class="dropdown-radio"
@@ -50,31 +53,46 @@
                 />
 
                 <label class="dropdown-option" for="select-msp">an MSP</label>
-                            <input class="dropdown-radio" id="select-msp" type="radio" name="user-type" value="msp" />
-                        </div>
-                    </div>
-                </div>
-                <div class="bubble dropdown-radio person">
-                    <div class="slider-group">
-                        <div class="slider-input">
-                            <p>moving</p>
-                            <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
-                            <div class="size-output">50 GB</div>
-                        </div>
-                        <div class="slider-container">
-                            <input type="range" min="0" max="100" value="10" step="5" class="slider size" id="myRange" />
-                        </div>
-                    </div>
-                </div>
-                <div class="bubble transfer-source person">
-                    <p>from</p>
-                    <div class="dropdown-container">
-                        <button id="dpdwn-button" class="dropdown-button">
+                <input
+                  class="dropdown-radio"
+                  id="select-msp"
+                  type="radio"
+                  name="user-type"
+                  value="msp"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="bubble person">
+            <div class="slider-group">
+              <div class="slider-input">
+                <p>moving</p>
+                <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
+                <div class="size-output">50 GB</div>
+              </div>
+              <div class="slider-container">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="10"
+                  step="5"
+                  class="slider size-person"
+                  id="myRange"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="bubble transfer-source person">
+            <p>from</p>
+            <div class="dropdown-container">
+              <button id="dpdwn-button" class="dropdown-button">
                 Google Drive
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
               </button>
-                        <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-                            <label class="dropdown-option" for="select-gdrive">Google Drive</label
+              <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive"
+                  >Google Drive</label
                 >
                 <input
                   class="dropdown-radio"
@@ -95,19 +113,28 @@
                   value="dropbox"
                 />
 
-                <label class="dropdown-option" for="select-box">Box</label>
-                            <input class="dropdown-radio" id="select-box" type="radio" name="user-type" value="box" />
-                        </div>
-                    </div>
+                <label class="dropdown-option" for="select-box"
+                  >Microsoft OneDrive</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-box"
+                  type="radio"
+                  name="user-type"
+                  value="box"
+                />
+              </div>
+            </div>
 
-                    <p>to</p>
-                    <div class="dropdown-container">
-                        <button id="dpdwn-button" class="dropdown-button">
-                Google Drive
+            <p>to</p>
+            <div class="dropdown-container">
+              <button id="dpdwn-button" class="dropdown-button">
+                Dropbox
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
               </button>
-                        <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-                            <label class="dropdown-option" for="select-gdrive">Google Drive</label
+              <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive"
+                  >Google Drive</label
                 >
                 <input
                   class="dropdown-radio"
@@ -128,39 +155,171 @@
                   value="dropbox"
                 />
 
-                <label class="dropdown-option" for="select-box">Box</label>
-                            <input class="dropdown-radio" id="select-box" type="radio" name="user-type" value="box" />
-                        </div>
-                    </div>
-                </div>
+                <label class="dropdown-option" for="select-box"
+                  >Microsoft OneDrive</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-box"
+                  type="radio"
+                  name="user-type"
+                  value="box"
+                />
+              </div>
             </div>
-            <div class="bot-chat">
-                <div class="bubble">How can I help?</div>
+          </div>
+          <div class="bubble moving org hidden">
+            <div class="slider-group">
+              <div class="slider-input">
+                <p>moving</p>
+                <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
+                <div class="size-output">50 GB</div>
+              </div>
+              <div class="slider-container">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="10"
+                  step="5"
+                  class="slider size-org"
+                  id="myRange"
+                />
+              </div>
             </div>
+          </div>
+          <div class="bubble users org hidden">
+            <div class="slider-group">
+              <div class="slider-input">
+                <p>moving</p>
+                <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
+                <div class="size-output">50 GB</div>
+              </div>
+              <div class="slider-container">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="10"
+                  step="5"
+                  class="slider"
+                  id="myRange"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="bubble transfer-source org hidden">
+            <p>from</p>
+            <div class="dropdown-container">
+              <button id="dpdwn-button" class="dropdown-button">
+                Dropbox
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
+              </button>
+              <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive"
+                  >Dropbox</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-gdrive"
+                  type="radio"
+                  name="user-type"
+                  value="gdrive"
+                />
+
+                <label class="dropdown-option" for="select-dropbox"
+                  >Google Drive</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-dropbox"
+                  type="radio"
+                  name="user-type"
+                  value="dropbox"
+                />
+
+                <label class="dropdown-option" for="select-box"
+                  >Microsoft OneDrive</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-box"
+                  type="radio"
+                  name="user-type"
+                  value="box"
+                />
+              </div>
+            </div>
+
+            <p>to</p>
+            <div class="dropdown-container">
+              <button id="dpdwn-button" class="dropdown-button">
+                Dropbox
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
+              </button>
+              <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive"
+                  >Dropbox</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-gdrive"
+                  type="radio"
+                  name="user-type"
+                  value="gdrive"
+                />
+
+                <label class="dropdown-option" for="select-dropbox"
+                  >Google Drive</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-dropbox"
+                  type="radio"
+                  name="user-type"
+                  value="dropbox"
+                />
+
+                <label class="dropdown-option" for="select-box"
+                  >Microsoft OneDrive</label
+                >
+                <input
+                  class="dropdown-radio"
+                  id="select-box"
+                  type="radio"
+                  name="user-type"
+                  value="box"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="avatar bot"></div>
+        <div class="bot-chat">
+          <div class="bubble">How can I help?</div>
+        </div>
+      </div>
+      <div class="avatar bot"></div>
     </div>
     <div class="pricing-table">
-        <div class="pricing-container competitor">
-            <p class="competitor-name">MultCloud</p>
-            <p class="price">$26</p>
-            <p class="estimated">estimated</p>
-            <p class="time-estimate">5 hours</p>
-        </div>
-        <div class="pricing-container move-bot">
-            <div class="movebot-table-logo"><img src="./move-bot-logo.svg" /></div>
-            <p class="price">$20</p>
-            <p class="estimated">estimated</p>
-            <p class="time-estimate">5 hours</p>
-            <button class="get-quote">Get Quote</button>
-        </div>
-        <div class="pricing-container competitor">
-            <p class="competitor-name">Cloudster</p>
-            <p class="price">$26</p>
-            <p class="estimated">estimated</p>
-            <p class="time-estimate">5 hours</p>
-        </div>
+      <div class="pricing-container competitor">
+        <p class="competitor-name">MultCloud</p>
+        <p class="price">$26</p>
+        <p class="estimated">estimated</p>
+        <p class="time-estimate">5 hours</p>
+      </div>
+      <div class="pricing-container move-bot">
+        <div class="movebot-table-logo"><img src="./move-bot-logo.svg" /></div>
+        <p class="price">$20</p>
+        <p class="estimated">estimated</p>
+        <p class="time-estimate">5 hours</p>
+        <button class="get-quote">Get Quote</button>
+      </div>
+      <div class="pricing-container competitor">
+        <p class="competitor-name">Cloudster</p>
+        <p class="price">$26</p>
+        <p class="estimated">estimated</p>
+        <p class="time-estimate">5 hours</p>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
