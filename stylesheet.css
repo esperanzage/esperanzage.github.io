@@ -69,8 +69,6 @@ p {
     box-sizing: border-box;
     border-radius: 0.25rem;
     width: 100%;
-    visibility: 1;
-    transition: all 500ms ease-in-out 100ms;
     height: auto;
     z-index: 999;
 }
@@ -88,7 +86,7 @@ p {
     box-sizing: border-box;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
-    min-width: 10rem;
+    min-width: 13rem;
     font-family: inherit;
     font-size: 1rem;
     height: 3rem;
@@ -227,6 +225,16 @@ input[type="range"]::-moz-range-progress {
     justify-content: center;
 }
 
+.bubble.moving.org {
+    grid-auto-flow: row;
+    grid-gap: 1rem;
+}
+
+.bubble.moving.msp {
+    grid-auto-flow: row;
+    grid-gap: 1rem;
+}
+
 .size-output {
     align-items: center;
     background-color: #ffffff;
@@ -240,19 +248,13 @@ input[type="range"]::-moz-range-progress {
 
 /* Avatars */
 
-.avatar {
-    border-radius: 100%;
-    width: 5rem;
-    height: 5rem;
-    background-color: var(--mainBlue);
-}
-
 .avatar.user {
     justify-self: end;
 }
 
 .avatar.bot {
     align-self: flex-end;
+    display: flex;
 }
 
 
@@ -305,7 +307,6 @@ input[type="range"]::-moz-range-progress {
     font-size: 0.75rem;
     text-align: center;
     color: var(--lightBlue);
-    margin-bottom: 0.5rem;
 }
 
 .time-estimate {
@@ -343,9 +344,16 @@ button.get-quote:hover {
 
 /* General Classes */
 
+.animateOpacity {
+    animation: 300ms ease-out 0s 1 ChangeOpacityIn;
+}
+
+.animateOpacityOut {
+    animation: 300ms ease-out 0s 1 ChangeOpacityOut;
+}
+
 .hidden {
     display: none;
-    visibility: 0;
 }
 
 .rotate {
@@ -367,6 +375,7 @@ button.get-quote:hover {
         grid-auto-flow: row;
         justify-items: center;
         row-gap: 0.5rem;
+        padding: 1rem;
     }
     .pricing-table {
         flex-direction: column;
@@ -395,5 +404,23 @@ button.get-quote:hover {
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes ChangeOpacityIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes ChangeOpacityOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
