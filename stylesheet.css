@@ -71,7 +71,7 @@ p {
     width: 100%;
     height: auto;
     z-index: 10;
-    max-height: 10.25rem;
+    max-height: 12rem;
     overflow-y: auto;
 }
 
@@ -88,7 +88,7 @@ p {
     box-sizing: border-box;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
-    min-width: 13rem;
+    min-width: 15rem;
     font-family: inherit;
     font-size: 1rem;
     height: 3rem;
@@ -244,6 +244,11 @@ input[type="range"]::-moz-range-progress {
     box-sizing: border-box;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
+    width: 8rem;
+    text-align: center;
+}
+
+.size-output.user {
     width: 6rem;
 }
 

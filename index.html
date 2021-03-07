@@ -25,315 +25,319 @@
                 <p>I'm</p>
                 <div class="dropdown-container user-type">
                     <button id="dpdwn-button" class="dropdown-button user-type">
-                an individual
-                <div id="dropdown-arrow" class="dropdown-arrow"></div>
-                </button>
+                    an individual
+                    <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                    </button>
                     <div id="dropdown" class="dropdown hidden" aria-role="combobox">
                         <label class="dropdown-option" for="select-person" id="select-person">an individual</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-person"
-                type="radio"
-                name="user-type"
-                value="person"
-              />
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-person"
+                    type="radio"
+                    name="user-type"
+                    value="person"
+                />
 
-              <label class="dropdown-option" for="select-org" id="select-org"
-                >an organization</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-org"
-                type="radio"
-                name="user-type"
-                value="org"
-              />
+                <label class="dropdown-option" for="select-org" id="select-org"
+                    >an organization</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-org"
+                    type="radio"
+                    name="user-type"
+                    value="org"
+                />
 
-              <label class="dropdown-option" for="select-msp" id="select-msp"
-                >an MSP</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-msp"
-                type="radio"
-                name="user-type"
-                value="msp"
-              />
+                <label class="dropdown-option" for="select-msp" id="select-msp"
+                    >a Managed Service Provider</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-msp"
+                    type="radio"
+                    name="user-type"
+                    value="msp"
+                />
+                <label class="dropdown-option" for="select-tech" id="select-tech"
+                    >a Technical Expert</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-msp"
+                    type="radio"
+                    name="user-type"
+                    value="msp"
+                />
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="bubble moving person">
-          <div class="slider-group">
-            <div class="slider-input">
-              <p>moving</p>
-              <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
-              <div class="size-output">50 GB</div>
             </div>
-            <div class="slider-container">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="10"
-                step="5"
-                class="slider size-person"
-                id="myRange"
-              />
+            <div class="bubble moving person">
+            <div class="slider-group">
+                <div class="slider-input">
+                <p>moving</p>
+                <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
+                <div class="size-output">50 GB</div>
+                </div>
+                <div class="slider-container">
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="10"
+                    step="5"
+                    class="slider size-person"
+                    id="myRange"
+                />
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="bubble transfer-source person">
-          <p>from</p>
-          <div class="dropdown-container">
-            <button id="dpdwn-button" class="dropdown-button">
-              Google Drive
-              <div id="dropdown-arrow" class="dropdown-arrow"></div>
-            </button>
-            <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-              <label class="dropdown-option" for="select-gdrive"
-                >Google Drive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-gdrive"
-                type="radio"
-                name="user-type"
-                value="gdrive"
-              />
+            </div>
+            <div class="bubble transfer-source person">
+            <p>from</p>
+            <div class="dropdown-container from">
+                <button id="dpdwn-button" class="dropdown-button">
+                Google Drive
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                </button>
+                <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive" id="gdrive"
+                    >Google Drive</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-gdrive"
+                    type="radio"
+                    value="gdrive"
+                />
 
-              <label class="dropdown-option" for="select-dropbox"
-                >Dropbox</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-dropbox"
-                type="radio"
-                name="user-type"
-                value="dropbox"
-              />
+                <label class="dropdown-option" for="select-dropbox" id="dropbox"
+                    >Dropbox</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-dropbox"
+                    type="radio"
+                    value="dropbox"
+                />
 
-              <label class="dropdown-option" for="select-box"
-                >Microsoft OneDrive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-box"
-                type="radio"
-                name="user-type"
-                value="box"
-              />
+                <label class="dropdown-option" for="select-one-drive" id="one-drive"
+                    >Microsoft OneDrive</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-one-drive"
+                    type="radio"
+                    value="one-drive"
+                />
+                </div>
             </div>
-          </div>
 
-          <p>to</p>
-          <div class="dropdown-container">
-            <button id="dpdwn-button" class="dropdown-button">
-              Dropbox
-              <div id="dropdown-arrow" class="dropdown-arrow"></div>
-            </button>
-            <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-              <label class="dropdown-option" for="select-gdrive"
-                >Google Drive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-gdrive"
-                type="radio"
-                name="user-type"
-                value="gdrive"
-              />
+            <p>to</p>
+            <div class="dropdown-container to">
+                <button id="dpdwn-button" class="dropdown-button">
+                Dropbox
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                </button>
+                <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive" id="gdrive"
+                    >Google Drive</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-gdrive"
+                    type="radio"
+                    value="gdrive"
+                />
 
-              <label class="dropdown-option" for="select-dropbox"
-                >Dropbox</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-dropbox"
-                type="radio"
-                name="user-type"
-                value="dropbox"
-              />
+                <label class="dropdown-option" for="select-dropbox" id="dropbox"
+                    >Dropbox</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-dropbox"
+                    type="radio"
+                    value="dropbox"
+                />
 
-              <label class="dropdown-option" for="select-box"
-                >Microsoft OneDrive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-box"
-                type="radio"
-                name="user-type"
-                value="box"
-              />
+                <label class="dropdown-option" for="select-one-drive" id="one-drive"
+                    >Microsoft OneDrive</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-one-drive"
+                    type="radio"
+                    value="one-drive"
+                />
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="bubble moving org hidden">
-          <div class="slider-group">
-            <div class="slider-input">
-              <p>moving</p>
-              <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
-              <div class="size-output">50 GB</div>
             </div>
-            <div class="slider-container">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="10"
-                step="5"
-                class="slider size-org"
-                id="myRange"
-              />
+            <div class="bubble moving org hidden">
+            <div class="slider-group">
+                <div class="slider-input">
+                <p>moving</p>
+                <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
+                <div class="size-output">50 GB</div>
+                </div>
+                <div class="slider-container">
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="10"
+                    step="5"
+                    class="slider size-org"
+                    id="myRange"
+                />
+                </div>
             </div>
-          </div>
-          <div class="slider-group">
-            <div class="slider-input">
-              <p>and</p>
-              <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
-              <div class="size-output">500</div>
-              <p>users</p>
+            <div class="slider-group">
+                <div class="slider-input">
+                <p>and</p>
+                <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
+                <div class="size-output user">500</div>
+                <p>users</p>
+                </div>
+                <div class="slider-container">
+                <input
+                    type="range"
+                    min="0"
+                    max="2000"
+                    value="10"
+                    step="10"
+                    class="slider"
+                    id="myRange"
+                />
+                </div>
             </div>
-            <div class="slider-container">
-              <input
-                type="range"
-                min="0"
-                max="2000"
-                value="10"
-                step="10"
-                class="slider"
-                id="myRange"
-              />
             </div>
-          </div>
-        </div>
-        <div class="bubble transfer-source org hidden">
-          <p>from</p>
-          <div class="dropdown-container">
-            <button id="dpdwn-button" class="dropdown-button">
-              Dropbox
-              <div id="dropdown-arrow" class="dropdown-arrow"></div>
-            </button>
-            <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-              <label class="dropdown-option" for="select-gdrive">Dropbox</label>
+            <div class="bubble transfer-source org hidden">
+            <p>from</p>
+            <div class="dropdown-container from">
+                <button id="dpdwn-button" class="dropdown-button">
+                Google Drive
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                </button>
+                <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label>
+                        <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
+
+                        <label class="dropdown-option" for="select-dropbox">Dropbox</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-dropbox"
+                    type="radio"
+                    value="dropbox"
+                />
+
+                <label class="dropdown-option" for="select-onedrive" id="one-drive"
+                    >Microsoft OneDrive</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-onedrive"
+                    type="radio"
+                    value="ms-onedrive"
+                />
+
+                <label class="dropdown-option" for="select-dropbox-business" id="dropbox-business"
+                    >Dropbox Business</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-dropbox-business"
+                    type="radio"
+                    value="dropbox-business"
+                />
+                <label class="dropdown-option" for="select-google-workspace" id="google-ws"
+                    >Google Workspace</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-google-workspace"
+                    type="radio"
+                    value="google-ws"
+                />
+                <label class="dropdown-option" for="select-ms-sharepoint" id="ms-sharepoint"
+                    >Microsoft Sharepoint</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-ms-sharepoint"
+                    type="radio"
+                    value="ms-sharepoint"
+                />
+                <label class="dropdown-option" for="select-egnyte" id="egnyte">Egnyte</label>
+                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="egnyte" />
+                        <label class="dropdown-option" for="select-windows-server" id="windows-server">Windows Server</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-windows-server"
+                    type="radio"
+                    value="windows-server"
+                />
+                </div>
+            </div>
+
+            <p>to</p>
+            <div class="dropdown-container to">
+                <button id="dpdwn-button" class="dropdown-button">
+                Dropbox
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                </button>
+                <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-gdrive">Dropbox</label>
                         <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
 
                         <label class="dropdown-option" for="select-dropbox">Google Drive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-dropbox"
-                type="radio"
-                value="dropbox"
-              />
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-dropbox"
+                    type="radio"
+                    value="dropbox"
+                />
 
-              <label class="dropdown-option" for="select-onedrive"
-                >Microsoft OneDrive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-onedrive"
-                type="radio"
-                value="ms-onedrive"
-              />
+                <label class="dropdown-option" for="select-onedrive"
+                    >Microsoft OneDrive</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-onedrive"
+                    type="radio"
+                    value="ms-onedrive"
+                />
 
-              <label class="dropdown-option" for="select-dropbox-business"
-                >Dropbox Business</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-dropbox-business"
-                type="radio"
-                value="dropbox-business"
-              />
-              <label class="dropdown-option" for="select-google-workspace"
-                >Google Workspace</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-google-workspace"
-                type="radio"
-                value="google-ws"
-              />
-              <label class="dropdown-option" for="select-ms-sharepoint"
-                >Microsoft Sharepoint</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-ms-sharepoint"
-                type="radio"
-                value="google-ws"
-              />
-              <label class="dropdown-option" for="select-egnyte">Egnyte</label>
-                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="google-ws" />
-                        <label class="dropdown-option" for="select-windows-server">Windows Server</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-windows-server"
-                type="radio"
-                value="google-ws"
-              />
-            </div>
-          </div>
-
-          <p>to</p>
-          <div class="dropdown-container">
-            <button id="dpdwn-button" class="dropdown-button">
-              Dropbox
-              <div id="dropdown-arrow" class="dropdown-arrow"></div>
-            </button>
-            <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-              <label class="dropdown-option" for="select-gdrive">Dropbox</label>
-                        <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
-
-                        <label class="dropdown-option" for="select-dropbox">Google Drive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-dropbox"
-                type="radio"
-                value="dropbox"
-              />
-
-              <label class="dropdown-option" for="select-onedrive"
-                >Microsoft OneDrive</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-onedrive"
-                type="radio"
-                value="ms-onedrive"
-              />
-
-              <label class="dropdown-option" for="select-dropbox-business"
-                >Dropbox Business</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-dropbox-business"
-                type="radio"
-                value="dropbox-business"
-              />
-              <label class="dropdown-option" for="select-google-workspace"
-                >Google Workspace</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-google-workspace"
-                type="radio"
-                value="google-ws"
-              />
-              <label class="dropdown-option" for="select-ms-sharepoint"
-                >Microsoft Sharepoint</label
-              >
-              <input
-                class="dropdown-radio"
-                id="select-ms-sharepoint"
-                type="radio"
-                value="google-ws"
-              />
-              <label class="dropdown-option" for="select-egnyte">Egnyte</label>
+                <label class="dropdown-option" for="select-dropbox-business"
+                    >Dropbox Business</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-dropbox-business"
+                    type="radio"
+                    value="dropbox-business"
+                />
+                <label class="dropdown-option" for="select-google-workspace"
+                    >Google Workspace</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-google-workspace"
+                    type="radio"
+                    value="google-ws"
+                />
+                <label class="dropdown-option" for="select-ms-sharepoint"
+                    >Microsoft Sharepoint</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-ms-sharepoint"
+                    type="radio"
+                    value="google-ws"
+                />
+                <label class="dropdown-option" for="select-egnyte">Egnyte</label>
                         <input class="dropdown-radio" id="select-egnyte" type="radio" value="google-ws" />
                     </div>
                 </div>
@@ -346,186 +350,206 @@
                         <div class="size-output">50 GB</div>
                     </div>
                     <div class="slider-container">
-                        <input type="range" min="0" max="100" value="10" step="5" class="slider size-org" id="myRange" />
+                        <input type="range" min="0" max="100" value="10" step="5" class="slider size-msp" id="myRange" />
                     </div>
                 </div>
                 <div class="slider-group">
                     <div class="slider-input">
                         <p>and</p>
                         <!-- <input type="text" id="number-input" value="50" min="0" max="1000" /> -->
-                        <div class="size-output">500</div>
+                        <div class="size-output user">500</div>
                         <p>users</p>
                     </div>
                     <div class="slider-container">
-                        <input type="range" min="0" max="2000" value="10" step="10" class="slider" id="myRange" />
+                        <input type="range" min="0" max="20000" value="500" step="100" class="slider" id="myRange" />
                     </div>
                 </div>
             </div>
             <div class="bubble transfer-source msp hidden">
                 <p>from</p>
-                <div class="dropdown-container">
+                <div class="dropdown-container from">
                     <button id="dpdwn-button" class="dropdown-button">
-              Dropbox
-              <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                Dropbox
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
             </button>
                     <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-                        <label class="dropdown-option" for="select-gdrive">Dropbox</label>
-                        <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
+                        <label class="dropdown-option" for="select-dropbox" id="dropbox">Dropbox</label>
+                        <input class="dropdown-radio" id="select-dropbox" type="radio" value="dropbox" />
 
-                        <label class="dropdown-option" for="select-dropbox">Google Drive</label
-              >
-              <input
+                        <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label
+                >
+                <input
                 class="dropdown-radio"
-                id="select-dropbox"
+                id="select-gdrive"
                 type="radio"
-                value="dropbox"
-              />
+                value="gdrive"
+                />
 
-              <label class="dropdown-option" for="select-onedrive"
+                <label class="dropdown-option" for="select-onedrive" id="one-drive"
                 >Microsoft OneDrive</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-onedrive"
                 type="radio"
                 value="ms-onedrive"
-              />
+                />
 
-              <label class="dropdown-option" for="select-dropbox-business"
+                <label class="dropdown-option" for="select-dropbox-business" id="dropbox-business"
                 >Dropbox Business</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-dropbox-business"
                 type="radio"
                 value="dropbox-business"
-              />
-              <label class="dropdown-option" for="select-google-workspace"
+                />
+                <label class="dropdown-option" for="select-google-workspace" id="google-ws"
                 >Google Workspace</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-google-workspace"
                 type="radio"
                 value="google-ws"
-              />
-              <label class="dropdown-option" for="select-ms-sharepoint"
+                />
+                <label class="dropdown-option" for="select-ms-sharepoint" id="ms-sharepoint"
                 >Microsoft Sharepoint</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-ms-sharepoint"
                 type="radio"
                 value="google-ws"
-              />
-              <label class="dropdown-option" for="select-egnyte">Egnyte</label>
+                />
+                <label class="dropdown-option" for="select-egnyte" id="egnyte">Egnyte</label>
                         <input class="dropdown-radio" id="select-egnyte" type="radio" value="google-ws" />
-                        <label class="dropdown-option" for="select-windows-server">Local Server</label
-              >
-              <input
+                        <label class="dropdown-option" for="select-local-server" id="local-server">Local Server</label
+                >
+                <input
                 class="dropdown-radio"
-                id="select-windows-server"
+                id="select-local-server"
                 type="radio"
-                value="google-ws"
-              />
-              <label class="dropdown-option" for="select-amazon"
+                value="local-server"
+                />
+                <label class="dropdown-option" for="select-amazon" id="amazon-s3"
                 >Amazon S3</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-amazon"
                 type="radio"
-                value="google-ws"
-              />
-            </div>
-          </div>
+                value="amazon-s3"
+                />
 
-          <p>to</p>
-          <div class="dropdown-container">
+                <label class="dropdown-option" for="select-wasabi" id="wasabi"
+                >Wasabi</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-wasabi"
+                type="radio"
+                value="wasabi"
+                />
+                
+            </div>
+            </div>
+
+            <p>to</p>
+            <div class="dropdown-container to">
             <button id="dpdwn-button" class="dropdown-button">
-              Dropbox
-              <div id="dropdown-arrow" class="dropdown-arrow"></div>
+                Dropbox
+                <div id="dropdown-arrow" class="dropdown-arrow"></div>
             </button>
             <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-              <label class="dropdown-option" for="select-gdrive">Dropbox</label>
-                        <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
+                <label class="dropdown-option" for="select-dropbox">Dropbox</label>
+                        <input class="dropdown-radio" id="select-dropbox" type="radio" value="dropbox" />
 
-                        <label class="dropdown-option" for="select-dropbox">Google Drive</label
-              >
-              <input
+                        <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label
+                >
+                <input
                 class="dropdown-radio"
-                id="select-dropbox"
+                id="select-gdrive"
                 type="radio"
-                value="dropbox"
-              />
+                value="gdrive"
+                />
 
-              <label class="dropdown-option" for="select-onedrive"
+                <label class="dropdown-option" for="select-onedrive" id="ms-onedrive"
                 >Microsoft OneDrive</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-onedrive"
                 type="radio"
                 value="ms-onedrive"
-              />
+                />
 
-              <label class="dropdown-option" for="select-dropbox-business"
+                <label class="dropdown-option" for="select-dropbox-business" id="dropbox-business"
                 >Dropbox Business</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-dropbox-business"
                 type="radio"
                 value="dropbox-business"
-              />
-              <label class="dropdown-option" for="select-google-workspace"
+                />
+                <label class="dropdown-option" for="select-google-workspace" id="google-ws"
                 >Google Workspace</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-google-workspace"
                 type="radio"
                 value="google-ws"
-              />
-              <label class="dropdown-option" for="select-ms-sharepoint"
+                />
+                <label class="dropdown-option" for="select-ms-sharepoint" id="ms-sharepoint"
                 >Microsoft Sharepoint</label
-              >
-              <input
+                >
+                <input
                 class="dropdown-radio"
                 id="select-ms-sharepoint"
                 type="radio"
                 value="google-ws"
-              />
-              <label class="dropdown-option" for="select-egnyte">Egnyte</label>
-                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="google-ws" />
+                />
+                <label class="dropdown-option" for="select-egnyte" id="egnyte">Egnyte</label>
+                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="egnyte" />
+
+                        <label class="dropdown-option" for="select-wasabi" id="wasabi">Wasabi</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-wasabi"
+                type="radio"
+                value="wasabi"
+                />
                     </div>
                 </div>
             </div>
-            <div class="bubble transfer-method msp hidden">
+            <div class="bubble transfer-method hidden">
                 <p>using</p>
                 <div class="dropdown-container method">
                     <button id="dpdwn-button" class="dropdown-button method">
                 Widows Client
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
-              </button>
+                </button>
                     <div id="dropdown" class="dropdown hidden" aria-role="combobox">
                         <label class="dropdown-option" for="windows-client" id="windows-client">Windows Client</label
                 >
                 <input
-                  class="dropdown-radio"
-                  id="windows-client"
-                  type="radio"
-                  value="windows-client"
+                    class="dropdown-radio"
+                    id="windows-client"
+                    type="radio"
+                    value="windows-client"
                 />
 
                 <label class="dropdown-option" for="sptp-ftp" id="sptp-ftp"
-                  >SFTP/FTP</label
+                    >SFTP/FTP</label
                 >
                 <input
-                  class="dropdown-radio"
-                  id="sptp-ftp"
-                  type="radio"
-                  value="sptp-ftp"
+                    class="dropdown-radio"
+                    id="sptp-ftp"
+                    type="radio"
+                    value="sptp-ftp"
                 />
 
                 <label class="dropdown-option" for="scp" id="scp">SCP</label>
@@ -533,23 +557,23 @@
                         <label class="dropdown-option" for="webdav" id="webdav">Webdav</label
                 >
                 <input
-                  class="dropdown-radio"
-                  id="webdav"
-                  type="radio"
-                  value="webdav"
+                    class="dropdown-radio"
+                    id="webdav"
+                    type="radio"
+                    value="webdav"
                 />
-                <label class="dropdown-option" for="heavylift" id="heavylift"
-                  >HeavyLift Appliance</label
+                <label class="dropdown-option hidden" for="heavylift" id="heavylift"
+                    >HeavyLift Appliance</label
                 >
                 <input
-                  class="dropdown-radio"
-                  id="heavylift"
-                  type="radio"
-                  value="heavylift"
+                    class="dropdown-radio"
+                    id="heavylift"
+                    type="radio"
+                    value="heavylift"
                 />
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
         <div class="bot-chat">
           <div class="bubble">How can I help?</div>
         </div>
@@ -560,7 +584,7 @@
     </div>
     <div class="pricing-table">
       <div class="pricing-container competitor">
-        <p class="competitor-name">MultCloud</p>
+        <p class="competitor-name" id="competitor-1">MultCloud</p>
         <p class="price">$26</p>
         <p class="estimated">estimated</p>
         <p class="time-estimate">5 hours</p>
@@ -573,7 +597,7 @@
         <button class="get-quote">Get Quote</button>
       </div>
       <div class="pricing-container competitor">
-        <p class="competitor-name">Cloudster</p>
+        <p class="competitor-name" id="competitor-2">Cloudster</p>
         <p class="price">$26</p>
         <p class="estimated">estimated</p>
         <p class="time-estimate">5 hours</p>

@@ -10,7 +10,6 @@ const botAvatar = document.querySelector("#avatar-bot");
 
 // General Functions
 
-
 let state = {
     userType: '',
     size: 0,
@@ -18,7 +17,6 @@ let state = {
     from: '',
     to: ''
 }
-
 
 const setState = (key, value) => {
     state[key] = value;
@@ -40,11 +38,13 @@ const toggleClass = (element, className) => element.classList.toggle(className);
 
 const setElementContent = (target, content) => (target.textContent = content);
 
-const getMoveBotPricing = (size, users) => ((size * 0.4) + (users * 0.01)).toFixed(0);
+const getMoveBotPricing = () => ((state.size * 0.4) + (state.users * 0.01)).toFixed(0);
 
-const getCompetitorPricing = (size, users) => ((size * 0.4 * 1.3) + (users * 0.01)).toFixed(0);
+const getCompetitorPricing = () => ((state.size * 0.4 * 1.3) + (state.users * 0.01)).toFixed(0);
 
 const updatePricingBoxes = () => {
+
+    //TO DO Format pricing number to avoid really long ones.
 
     const pricingBoxes = Array.from(
         document.querySelectorAll(".pricing-container")
@@ -54,9 +54,11 @@ const updatePricingBoxes = () => {
         let priceNumber = box.querySelector(".price");
 
         if (box.classList.contains("competitor")) {
-            setElementContent(priceNumber, "$" + getCompetitorPricing(state.size, state.users));
+            let price = getCompetitorPricing();
+            setElementContent(priceNumber, "$" + price);
         } else {
-            setElementContent(priceNumber, "$" + getMoveBotPricing(state.size, state.users));
+            let price = getMoveBotPricing();
+            setElementContent(priceNumber, "$" + price);
         }
     });
 };
@@ -72,14 +74,15 @@ const makeLogSlider = (slider, output, minval, maxval) => {
         let position = slider.value;
         let valueFromPosition = Math.exp((position - minpos) * scale + minlval);
 
-        if (valueFromPosition < 1024) {
+        if (valueFromPosition < 1000) {
             output.textContent = valueFromPosition.toFixed(0) + " GB";
         } else {
-            outputValue = valueFromPosition / 1024;
+            outputValue = valueFromPosition / 1000;
             output.textContent = outputValue.toFixed(1) + " TB";
         }
         setState('size', valueFromPosition);
         updatePricingBoxes();
+        renderHeavyLiftAppliance();
     };
     updateSlider();
     slider.oninput = updateSlider;
@@ -105,6 +108,7 @@ const renderBubblesByUser = () => {
 
             });
             setAvatar();
+            setCompetitor('MultCloud', 'CloudFuse');
             break
         case 'select-org':
             personBubbles.forEach((bubble) => {
@@ -123,7 +127,10 @@ const renderBubblesByUser = () => {
 
             });
             setAvatar();
+            setCompetitor('BitTitan', 'CloudFuse');
             break
+        case 'the-matrix':
+        case 'select-tech':
         case 'select-msp':
             personBubbles.forEach((bubble) => {
                 toggleOpacityAnimation(bubble, 'hide');
@@ -138,6 +145,8 @@ const renderBubblesByUser = () => {
                 bubble.classList.remove("hidden")
             });
             setAvatar();
+            setCompetitor('CloudM', 'CloudFastPath');
+            break
     }
 
 };
@@ -145,25 +154,85 @@ const renderBubblesByUser = () => {
 const setAvatar = () => {
 
     switch (state.userType) {
-        case 'person':
+        case 'select-person':
             userAvatar.src = 'personas/sophie.svg'
             botAvatar.src = 'personas/jim.svg'
             break
-        case 'org':
+        case 'select-org':
             userAvatar.src = 'personas/anne.svg'
             botAvatar.src = 'personas/ted.svg'
             break
-        case 'msp':
+        case 'select-tech':
+        case 'select-msp':
             userAvatar.src = 'personas/ollie.svg'
             botAvatar.src = 'personas/jed.svg'
-
+            break
+        case 'the-matrix':
+            userAvatar.src = 'personas/neo.svg'
+            botAvatar.src = 'personas/morpheus.svg'
+            break
     }
 
 }
 
+const setCompetitor = (firstCompetitor, secondCompetitor) => {
+    const competitor1 = document.querySelector('#competitor-1');
+    const competitor2 = document.querySelector('#competitor-2');
 
-// State
+    competitor1.textContent = firstCompetitor;
+    competitor2.textContent = secondCompetitor;
+}
 
+const updateStateByUserType = (userType) => {
+    setState('userType', userType);
+
+    // TO DO - Set state for size and users when changing user type
+
+    // switch (userType){
+    //   case 'select-person':
+
+    //     break
+    // case 'select-org':
+
+    //     break
+    // case 'select-tech':
+    // case 'select-msp':
+
+    //     break
+    // }
+
+    // setState('size', )
+}
+
+const renderHeavyLiftAppliance = () => {
+    const heavyLiftOption = document.querySelector('#heavylift')
+    if (state.size > 10000) {
+        heavyLiftOption.classList.remove('hidden');
+    } else {
+        heavyLiftOption.classList.add('hidden');
+    }
+}
+
+const renderTransferMethod = () => {
+    const transferMethodBubble = document.querySelector('.transfer-method');
+
+    if (state.from === 'local-server') {
+        transferMethodBubble.classList.remove('hidden');
+
+    } else {
+        transferMethodBubble.classList.add('hidden');
+    }
+}
+
+const renderTheMatrix = () => {
+
+    if (state.from === 'wasabi' || state.to === 'wasabi') {
+        setState('userType', 'the-matrix');
+    }
+    setAvatar();
+
+
+}
 
 //Slider Behavior
 
@@ -174,7 +243,9 @@ sliderGroup.forEach((group) => {
     if (rangeSlider.classList.contains("size-person")) {
         makeLogSlider(rangeSlider, outputContainer, 0, 2 * 1024);
     } else if (rangeSlider.classList.contains("size-org")) {
-        makeLogSlider(rangeSlider, outputContainer, 0, 50 * 1024);
+        makeLogSlider(rangeSlider, outputContainer, 0, 200 * 1024);
+    } else if (rangeSlider.classList.contains("size-msp")) {
+        makeLogSlider(rangeSlider, outputContainer, 0, 500 * 1024);
     } else {
         rangeSlider.oninput = () => {
             outputContainer.textContent = rangeSlider.value;
@@ -186,9 +257,11 @@ sliderGroup.forEach((group) => {
 
 // Dropdown behaviors
 
+//TO DO  Create dropdown options from array to clean-up html
 const createDropdownOptions = () => {
 
 }
+
 
 dropdowns.forEach((dropdown) => {
     const dropdownButton = dropdown.querySelector("#dpdwn-button");
@@ -197,6 +270,7 @@ dropdowns.forEach((dropdown) => {
     const dropdownOptions = Array.from(
         dropdownOptionContainer.querySelectorAll(".dropdown-option")
     );
+
 
     dropdownButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -212,8 +286,15 @@ dropdowns.forEach((dropdown) => {
                 element.textContent
             );
             if (dropdown.classList.contains('user-type')) {
-                setState('userType', element.id);
+                updateStateByUserType(element.id);
                 renderBubblesByUser();
+            } else if (dropdown.classList.contains('from')) {
+                setState('from', element.id);
+                renderTransferMethod();
+                renderTheMatrix();
+            } else if (dropdown.classList.contains('to')) {
+                setState('to', element.id);
+                renderTheMatrix();
             }
             toggleClass(dropdownOptionContainer, "hidden");
             toggleClass(dropdownOptionContainer, "animateOpacity");
