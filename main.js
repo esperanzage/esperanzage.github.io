@@ -2,45 +2,61 @@ const dropdowns = Array.from(
     document.getElementsByClassName("dropdown-container")
 );
 const sliderGroup = Array.from(document.getElementsByClassName("slider-group"));
-const pricingBoxes = Array.from(
-    document.querySelectorAll(".pricing-container")
-);
 const personBubbles = Array.from(document.querySelectorAll(".bubble.person"));
 const orgBubbles = Array.from(document.querySelectorAll(".bubble.org"));
 const mspBubbles = Array.from(document.querySelectorAll(".bubble.msp"));
 const userAvatar = document.querySelector("#avatar-user");
-const botAvatar = document.querySelector("#avatar-movebot");
-
+const botAvatar = document.querySelector("#avatar-bot");
 
 // General Functions
 
-const toggleOpacityAnimation = (element) => {
-    if (element.classList.contains("hidden")) {
-        element.classList.toggle("animateOpacityOut")
-        element.classList.remove("animateOpacity")
+
+let state = {
+    userType: '',
+    size: 0,
+    users: 0,
+    from: '',
+    to: ''
+}
+
+
+const setState = (key, value) => {
+    state[key] = value;
+}
+
+const toggleOpacityAnimation = (element, hide) => {
+    if (hide) {
+        element.classList.remove("animateOpacity");
+        element.classList.add("animateOpacityOut");
+
     } else {
-        element.classList.remove("animateOpacityOut")
-        element.classList.add("animateOpacity")
+        element.classList.remove("animateOpacityOut");
+        element.classList.add("animateOpacity");
     }
 
-}
+};
 
 const toggleClass = (element, className) => element.classList.toggle(className);
 
 const setElementContent = (target, content) => (target.textContent = content);
 
-const getMoveBotPricing = (gigas) => (gigas * 0.4).toFixed(0);
+const getMoveBotPricing = (size, users) => ((size * 0.4) + (users * 0.01)).toFixed(0);
 
-const getCompetitorPricing = (gigas) => (gigas * 0.4 * 1.3).toFixed(0);
+const getCompetitorPricing = (size, users) => ((size * 0.4 * 1.3) + (users * 0.01)).toFixed(0);
 
-const updatePricingBoxes = (value) => {
+const updatePricingBoxes = () => {
+
+    const pricingBoxes = Array.from(
+        document.querySelectorAll(".pricing-container")
+    );
+
     pricingBoxes.forEach((box) => {
         let priceNumber = box.querySelector(".price");
 
         if (box.classList.contains("competitor")) {
-            setElementContent(priceNumber, "$" + getCompetitorPricing(value));
+            setElementContent(priceNumber, "$" + getCompetitorPricing(state.size, state.users));
         } else {
-            setElementContent(priceNumber, "$" + getMoveBotPricing(value));
+            setElementContent(priceNumber, "$" + getMoveBotPricing(state.size, state.users));
         }
     });
 };
@@ -60,83 +76,75 @@ const makeLogSlider = (slider, output, minval, maxval) => {
             output.textContent = valueFromPosition.toFixed(0) + " GB";
         } else {
             outputValue = valueFromPosition / 1024;
-            output.textContent = outputValue.toFixed(0) + " TB";
+            output.textContent = outputValue.toFixed(1) + " TB";
         }
-
-        updatePricingBoxes(valueFromPosition);
+        setState('size', valueFromPosition);
+        updatePricingBoxes();
     };
     updateSlider();
     slider.oninput = updateSlider;
 
-    // output.oninput = () => {
-    //     console.log("output.oninput")
-    //     let inputValue = output.value;
-    //     let positionFromValue = minpos + (Math.log(inputValue) - minlval) / scale;
-
-    //     slider.value = positionFromValue;
-    //     updatePricingBoxes(positionFromValue);
-
-    // }
 };
 
-const renderBubblesByUser = (optionValue) => {
-    switch (optionValue) {
+const renderBubblesByUser = () => {
+    switch (state.userType) {
         case 'select-person':
-            orgBubbles.forEach((bubble) => bubble.classList.add("hidden"));
+            orgBubbles.forEach((bubble) => {
+                toggleOpacityAnimation(bubble, 'hide');
+                bubble.classList.add("hidden");
+
+            });
             mspBubbles.forEach((bubble) => {
-                bubble.classList.add("animateOpacityOut", "hidden")
+                toggleOpacityAnimation(bubble, 'hide');
+                bubble.classList.add("hidden");
+
             });
             personBubbles.forEach((bubble) => {
-                bubble.classList.remove("hidden")
-                bubble.classList.add("animateOpacity")
+                toggleOpacityAnimation(bubble);
+                bubble.classList.remove("hidden");
+
             });
-            setAvatar('person');
+            setAvatar();
             break
         case 'select-org':
             personBubbles.forEach((bubble) => {
+                toggleOpacityAnimation(bubble, 'hide');
                 bubble.classList.add("hidden")
-                toggleOpacityAnimation(bubble);
+
             });
             mspBubbles.forEach((bubble) => {
+                toggleOpacityAnimation(bubble, 'hide');
                 bubble.classList.add("hidden")
-                toggleOpacityAnimation(bubble);
+
             });
             orgBubbles.forEach((bubble) => {
-                bubble.classList.remove("hidden");
                 toggleOpacityAnimation(bubble);
+                bubble.classList.remove("hidden");
+
             });
-            setAvatar('org');
+            setAvatar();
             break
         case 'select-msp':
-            personBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-            orgBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-            mspBubbles.forEach((bubble) => bubble.classList.remove("hidden"));
-            setAvatar('msp');
+            personBubbles.forEach((bubble) => {
+                toggleOpacityAnimation(bubble, 'hide');
+                bubble.classList.add("hidden")
+            });
+            orgBubbles.forEach((bubble) => {
+                toggleOpacityAnimation(bubble, 'hide');
+                bubble.classList.add("hidden")
+            });
+            mspBubbles.forEach((bubble) => {
+                toggleOpacityAnimation(bubble);
+                bubble.classList.remove("hidden")
+            });
+            setAvatar();
     }
-
-
-    // if (optionValue === "select-person") {
-    //     orgBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-    //     mspBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-    //     personBubbles.forEach((bubble) => bubble.classList.remove("hidden"));
-    //     setAvatar('person');
-    // } else if (optionValue === "select-org") {
-    //     personBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-    //     mspBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-    //     orgBubbles.forEach((bubble) => bubble.classList.remove("hidden"));
-    //     setAvatar('org');
-    // } else if (optionValue === "select-msp") {
-    //     personBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-    //     orgBubbles.forEach((bubble) => bubble.classList.add("hidden"));
-    //     mspBubbles.forEach((bubble) => bubble.classList.remove("hidden"));
-    //     setAvatar('msp');
-    // }
 
 };
 
-const setAvatar = (userType) => {
+const setAvatar = () => {
 
-    switch (userType) {
+    switch (state.userType) {
         case 'person':
             userAvatar.src = 'personas/sophie.svg'
             botAvatar.src = 'personas/jim.svg'
@@ -170,11 +178,17 @@ sliderGroup.forEach((group) => {
     } else {
         rangeSlider.oninput = () => {
             outputContainer.textContent = rangeSlider.value;
+            setState('users', rangeSlider.value);
+            updatePricingBoxes();
         };
     }
 });
 
 // Dropdown behaviors
+
+const createDropdownOptions = () => {
+
+}
 
 dropdowns.forEach((dropdown) => {
     const dropdownButton = dropdown.querySelector("#dpdwn-button");
@@ -197,10 +211,14 @@ dropdowns.forEach((dropdown) => {
                 Array.from(dropdownButton.childNodes)[0],
                 element.textContent
             );
-            renderBubblesByUser(element.id);
+            if (dropdown.classList.contains('user-type')) {
+                setState('userType', element.id);
+                renderBubblesByUser();
+            }
             toggleClass(dropdownOptionContainer, "hidden");
             toggleClass(dropdownOptionContainer, "animateOpacity");
             toggleClass(dropdownArrow, "rotate");
+
         });
     });
 

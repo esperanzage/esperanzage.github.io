@@ -70,7 +70,9 @@ p {
     border-radius: 0.25rem;
     width: 100%;
     height: auto;
-    z-index: 999;
+    z-index: 10;
+    max-height: 10.25rem;
+    overflow-y: auto;
 }
 
 .dropdown-radio {
@@ -95,6 +97,7 @@ p {
 }
 
 .dropdown-option {
+    box-sizing: border-box;
     padding: 0.5rem 1rem;
     background-color: #ffffff;
     transition: background-color 100ms ease-in;
@@ -185,22 +188,17 @@ input[type="range"]::-moz-range-progress {
 }
 
 .chatbox-container {
-    display: grid;
-    grid-auto-flow: row;
-    row-gap: 2.5rem;
-}
-
-.user-chat {
-    animation: 1000ms ease-out 0s 1 slideInFromBottom;
+    animation: 800ms ease-out 500ms 1 slideInFromBottom forwards;
     display: grid;
     grid-auto-flow: row;
     row-gap: 1rem;
     opacity: 0;
-    animation-fill-mode: forwards;
 }
 
 .bot-chat {
-    animation: 500ms ease-out 500ms 1 slideInFromBottom;
+    opacity: 0;
+    animation: 800ms ease-out 800ms 1 slideInFromBottom forwards;
+    margin-top: 1rem;
 }
 
 .bubble {
@@ -222,6 +220,10 @@ input[type="range"]::-moz-range-progress {
 }
 
 .bubble.transfer-source {
+    justify-content: center;
+}
+
+.bubble.transfer-method {
     justify-content: center;
 }
 
@@ -248,13 +250,16 @@ input[type="range"]::-moz-range-progress {
 
 /* Avatars */
 
-.avatar.user {
+.avatar-user {
     justify-self: end;
+    animation: 800ms ease-out 0s 1 slideInFromBottom forwards;
+    opacity: 0;
 }
 
-.avatar.bot {
-    align-self: flex-end;
-    display: flex;
+.avatar-bot {
+    align-self: self-end;
+    animation: 800ms ease-out 800ms 1 slideInFromBottom forwards;
+    opacity: 0;
 }
 
 
@@ -278,8 +283,9 @@ input[type="range"]::-moz-range-progress {
     box-shadow: 2px 7px 24px rgba(9, 49, 96, 0.12);
     border-radius: 0.8rem;
     margin-right: 2rem;
-    transition: all 500ms ease-in;
     min-width: 8rem;
+    opacity: 0;
+    animation: 800ms ease-out 800ms 1 slideInFromBottom forwards;
 }
 
 .pricing-container.competitor {
@@ -345,11 +351,11 @@ button.get-quote:hover {
 /* General Classes */
 
 .animateOpacity {
-    animation: 300ms ease-out 0s 1 ChangeOpacityIn;
+    animation: 200ms ease-out 0s 1 ChangeOpacityIn;
 }
 
 .animateOpacityOut {
-    animation: 300ms ease-out 0s 1 ChangeOpacityOut;
+    animation: 200ms ease-out 0s 1 ChangeOpacityOut;
 }
 
 .hidden {
@@ -398,8 +404,7 @@ button.get-quote:hover {
 
 @keyframes slideInFromBottom {
     0% {
-        transform: translateY(20%);
-        opacity: 0;
+        transform: translateY(50px);
     }
     100% {
         transform: translateY(0);
