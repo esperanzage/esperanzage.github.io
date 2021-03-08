@@ -97,19 +97,10 @@
             <p>from</p>
             <div class="dropdown-container from">
                 <button id="dpdwn-button" class="dropdown-button">
-                Google Drive
+                Dropbox
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
                 </button>
                 <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-                <label class="dropdown-option" for="select-gdrive" id="gdrive"
-                    >Google Drive</label
-                >
-                <input
-                    class="dropdown-radio"
-                    id="select-gdrive"
-                    type="radio"
-                    value="gdrive"
-                />
 
                 <label class="dropdown-option" for="select-dropbox" id="dropbox"
                     >Dropbox</label
@@ -120,6 +111,15 @@
                     type="radio"
                     value="dropbox"
                 />
+                <label class="dropdown-option" for="select-gdrive" id="gdrive"
+                >Google Drive</label
+            >
+            <input
+                class="dropdown-radio"
+                id="select-gdrive"
+                type="radio"
+                value="gdrive"
+            />
 
                 <label class="dropdown-option" for="select-one-drive" id="one-drive"
                     >Microsoft OneDrive</label
@@ -136,7 +136,7 @@
             <p>to</p>
             <div class="dropdown-container to">
                 <button id="dpdwn-button" class="dropdown-button">
-                Dropbox
+                Google Drive
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
                 </button>
                 <div id="dropdown" class="dropdown hidden" aria-role="combobox">
@@ -215,24 +215,24 @@
             <p>from</p>
             <div class="dropdown-container from">
                 <button id="dpdwn-button" class="dropdown-button">
-                Google Drive
+                Dropbox
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
                 </button>
                 <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                <label class="dropdown-option" for="select-dropbox">Dropbox</label
+                    >
+                    <input
+                        class="dropdown-radio"
+                        id="select-dropbox"
+                        type="radio"
+                        value="dropbox"
+                    />
                 <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label>
                         <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
 
-                        <label class="dropdown-option" for="select-dropbox">Dropbox</label
-                >
-                <input
-                    class="dropdown-radio"
-                    id="select-dropbox"
-                    type="radio"
-                    value="dropbox"
-                />
 
-                <label class="dropdown-option" for="select-onedrive" id="one-drive"
-                    >Microsoft OneDrive</label
+
+                        <label class="dropdown-option" for="select-onedrive" id="one-drive">Microsoft OneDrive</label
                 >
                 <input
                     class="dropdown-radio"
@@ -284,10 +284,19 @@
             <p>to</p>
             <div class="dropdown-container to">
                 <button id="dpdwn-button" class="dropdown-button">
-                Dropbox
+                Google Workspace
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
                 </button>
                 <div id="dropdown" class="dropdown hidden" aria-role="combobox">
+                    <label class="dropdown-option" for="select-google-workspace"
+                    >Google Workspace</label
+                >
+                <input
+                    class="dropdown-radio"
+                    id="select-google-workspace"
+                    type="radio"
+                    value="google-ws"
+                />
                 <label class="dropdown-option" for="select-gdrive">Dropbox</label>
                         <input class="dropdown-radio" id="select-gdrive" type="radio" value="gdrive" />
 
@@ -319,15 +328,7 @@
                     type="radio"
                     value="dropbox-business"
                 />
-                <label class="dropdown-option" for="select-google-workspace"
-                    >Google Workspace</label
-                >
-                <input
-                    class="dropdown-radio"
-                    id="select-google-workspace"
-                    type="radio"
-                    value="google-ws"
-                />
+
                 <label class="dropdown-option" for="select-ms-sharepoint"
                     >Microsoft Sharepoint</label
                 >
@@ -375,7 +376,14 @@
                     <div id="dropdown" class="dropdown hidden" aria-role="combobox">
                         <label class="dropdown-option" for="select-dropbox" id="dropbox">Dropbox</label>
                         <input class="dropdown-radio" id="select-dropbox" type="radio" value="dropbox" />
-
+                        <label class="dropdown-option" for="select-google-workspace" id="google-ws">Google Workspace</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-google-workspace"
+                type="radio"
+                value="google-ws"
+                />
                         <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label
                 >
                 <input
@@ -404,15 +412,7 @@
                 type="radio"
                 value="dropbox-business"
                 />
-                <label class="dropdown-option" for="select-google-workspace" id="google-ws"
-                >Google Workspace</label
-                >
-                <input
-                class="dropdown-radio"
-                id="select-google-workspace"
-                type="radio"
-                value="google-ws"
-                />
+                
                 <label class="dropdown-option" for="select-ms-sharepoint" id="ms-sharepoint"
                 >Microsoft Sharepoint</label
                 >
@@ -422,8 +422,8 @@
                 type="radio"
                 value="google-ws"
                 />
-                <label class="dropdown-option" for="select-egnyte" id="egnyte">Egnyte</label>
-                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="google-ws" />
+                <label class="dropdown-option" for="select-egnyte" id="egnyte" >Egnyte</label>
+                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="egnyte" />
                         <label class="dropdown-option" for="select-local-server" id="local-server">Local Server</label
                 >
                 <input
@@ -441,6 +441,24 @@
                 type="radio"
                 value="amazon-s3"
                 />
+                <label class="dropdown-option" for="select-ms-azure" id="ms-azure"
+                >Microsoft Azure</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-ms-azure"
+                type="radio"
+                value="ms-azure"
+                />
+                <label class="dropdown-option" for="select-google-cloud-storage" id="google-cloud-storage"
+                >Google Cloud Storage</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-google-cloud-storage"
+                type="radio"
+                value="google-cloud-storage"
+                />
 
                 <label class="dropdown-option" for="select-wasabi" id="wasabi"
                 >Wasabi</label
@@ -451,6 +469,34 @@
                 type="radio"
                 value="wasabi"
                 />
+                <label class="dropdown-option" for="select-blackblaze" id="blackblaze"
+                >Blackblaze</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-blackblaze"
+                type="radio"
+                value="blackblaze"
+                />
+                <label class="dropdown-option" for="select-digital-ocean" id="digital-ocean"
+                >Digital Ocean</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-digital-ocean"
+                type="radio"
+                value="digital-ocean"
+                />
+                <label class="dropdown-option" for="select-s3-comp-server" id="s3-comp-server"
+                >S3 Compatible Server</label
+                >
+                <input
+                class="dropdown-radio"
+                id="select-s3-comp-server"
+                type="radio"
+                value="s3-comp-server"
+                />
+                
                 
             </div>
             </div>
@@ -458,42 +504,11 @@
             <p>to</p>
             <div class="dropdown-container to">
             <button id="dpdwn-button" class="dropdown-button">
-                Dropbox
+                Google Workspace
                 <div id="dropdown-arrow" class="dropdown-arrow"></div>
             </button>
             <div id="dropdown" class="dropdown hidden" aria-role="combobox">
-                <label class="dropdown-option" for="select-dropbox">Dropbox</label>
-                        <input class="dropdown-radio" id="select-dropbox" type="radio" value="dropbox" />
-
-                        <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label
-                >
-                <input
-                class="dropdown-radio"
-                id="select-gdrive"
-                type="radio"
-                value="gdrive"
-                />
-
-                <label class="dropdown-option" for="select-onedrive" id="ms-onedrive"
-                >Microsoft OneDrive</label
-                >
-                <input
-                class="dropdown-radio"
-                id="select-onedrive"
-                type="radio"
-                value="ms-onedrive"
-                />
-
-                <label class="dropdown-option" for="select-dropbox-business" id="dropbox-business"
-                >Dropbox Business</label
-                >
-                <input
-                class="dropdown-radio"
-                id="select-dropbox-business"
-                type="radio"
-                value="dropbox-business"
-                />
-                <label class="dropdown-option" for="select-google-workspace" id="google-ws"
+                <label class="dropdown-option" for="select-google-workspace" id="google-ws" 
                 >Google Workspace</label
                 >
                 <input
@@ -502,26 +517,130 @@
                 type="radio"
                 value="google-ws"
                 />
-                <label class="dropdown-option" for="select-ms-sharepoint" id="ms-sharepoint"
-                >Microsoft Sharepoint</label
-                >
-                <input
-                class="dropdown-radio"
-                id="select-ms-sharepoint"
-                type="radio"
-                value="google-ws"
-                />
-                <label class="dropdown-option" for="select-egnyte" id="egnyte">Egnyte</label>
-                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="egnyte" />
+                <label class="dropdown-option" for="select-dropbox" id="dropbox">Dropbox</label>
+                        <input class="dropdown-radio" id="select-dropbox" type="radio" value="dropbox" />
 
-                        <label class="dropdown-option" for="select-wasabi" id="wasabi">Wasabi</label
-                >
-                <input
-                class="dropdown-radio"
-                id="select-wasabi"
-                type="radio"
-                value="wasabi"
-                />
+                        <label class="dropdown-option" for="select-gdrive" id="gdrive">Google Drive</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-gdrive"
+        type="radio"
+        value="gdrive"
+        />
+
+        <label class="dropdown-option" for="select-onedrive" id="one-drive"
+        >Microsoft OneDrive</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-onedrive"
+        type="radio"
+        value="ms-onedrive"
+        />
+
+        <label class="dropdown-option" for="select-dropbox-business" id="dropbox-business"
+        >Dropbox Business</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-dropbox-business"
+        type="radio"
+        value="dropbox-business"
+        />
+        
+        <label class="dropdown-option" for="select-ms-sharepoint" id="ms-sharepoint"
+        >Microsoft Sharepoint</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-ms-sharepoint"
+        type="radio"
+        value="google-ws"
+        />
+        <label class="dropdown-option" for="select-egnyte" id="egnyte" >Egnyte</label>
+                        <input class="dropdown-radio" id="select-egnyte" type="radio" value="egnyte" />
+                        <label class="dropdown-option" for="select-local-server" id="local-server">Local Server</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-local-server"
+        type="radio"
+        value="local-server"
+        />
+        <label class="dropdown-option" for="select-amazon" id="amazon-s3"
+        >Amazon S3</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-amazon"
+        type="radio"
+        value="amazon-s3"
+        />
+        <label class="dropdown-option" for="select-ms-azure" id="ms-azure"
+        >Microsoft Azure</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-ms-azure"
+        type="radio"
+        value="ms-azure"
+        />
+        <label class="dropdown-option" for="select-google-cloud-storage" id="google-cloud-storage"
+        >Google Cloud Storage</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-google-cloud-storage"
+        type="radio"
+        value="google-cloud-storage"
+        />
+
+        <label class="dropdown-option" for="select-wasabi" id="wasabi"
+        >Wasabi</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-wasabi"
+        type="radio"
+        value="wasabi"
+        />
+        <label class="dropdown-option" for="select-blackblaze" id="blackblaze"
+        >Blackblaze</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-blackblaze"
+        type="radio"
+        value="blackblaze"
+        />
+        <label class="dropdown-option" for="select-digital-ocean" id="digital-ocean"
+        >Digital Ocean</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-digital-ocean"
+        type="radio"
+        value="digital-ocean"
+        />
+        <label class="dropdown-option" for="select-movebot-storage" id="movebot-storage"
+        >Movebot Storage</label
+        >
+        <input
+        class="dropdown-radio"
+        id="selectmovebot-storage"
+        type="radio"
+        value="movebot-storage"
+        />
+        <label class="dropdown-option" for="select-s3-comp-server" id="s3-comp-server"
+        >S3 Compatible Server</label
+        >
+        <input
+        class="dropdown-radio"
+        id="select-s3-comp-server"
+        type="radio"
+        value="s3-comp-server"
+        />
                     </div>
                 </div>
             </div>

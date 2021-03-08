@@ -11,6 +11,7 @@
 body {
     font-family: "Poppins", sans-serif;
     margin: 0;
+    position: relative;
 }
 
 h1 {
@@ -44,7 +45,7 @@ input[type="number"] {
     font-size: 1rem;
     color: var(--mainBlue);
     font-weight: 500;
-    height: 3rem;
+    height: 2.75rem;
 }
 
 p {
@@ -182,9 +183,9 @@ input[type="range"]::-moz-range-progress {
 .container {
     display: grid;
     grid-template-columns: auto minmax(16rem, 40rem) auto;
-    column-gap: 1rem;
-    -webkit-column-gap: 1rem;
-    -moz-column-gap: 1rem;
+    grid-gap: 1rem;
+    -webkit-grid-gap: 1rem;
+    -moz-grid-gap: 1rem;
 }
 
 .chatbox-container {
@@ -265,6 +266,7 @@ input[type="range"]::-moz-range-progress {
     align-self: self-end;
     animation: 800ms ease-out 800ms 1 slideInFromBottom forwards;
     opacity: 0;
+    display: flex;
 }
 
 
@@ -290,6 +292,7 @@ input[type="range"]::-moz-range-progress {
     margin-right: 2rem;
     min-width: 8rem;
     opacity: 0;
+    transition: width 100ms ease-in-out;
     animation: 800ms ease-out 800ms 1 slideInFromBottom forwards;
 }
 
@@ -303,11 +306,18 @@ input[type="range"]::-moz-range-progress {
 
 .price {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 2.5rem;
     margin: 1rem 0 1rem 0;
     color: var(--mainBlue);
     min-width: 10rem;
     text-align: center;
+    line-height: 4rem;
+    text-align: center;
+    transition: font-size 50ms linear;
+}
+
+.small-price {
+    font-size: 2.15rem;
 }
 
 .pricing-container.move-bot .price {
@@ -371,6 +381,10 @@ button.get-quote:hover {
     transform: rotate(-180deg) translate(2px, 2px);
 }
 
+.fadeOutIn {
+    animation: 200ms ease-out 0s 1 fadeOutIn;
+}
+
 
 /* Media Queries */
 
@@ -396,10 +410,10 @@ button.get-quote:hover {
         margin-bottom: 1rem;
         margin-right: 0;
     }
-    .avatar.user {
+    .avatar-user {
         justify-self: start;
     }
-    .avatar.bot {
+    .avatar-bot {
         justify-self: end;
     }
 }
@@ -419,9 +433,11 @@ button.get-quote:hover {
 
 @keyframes ChangeOpacityIn {
     0% {
+        visibility: hidden;
         opacity: 0;
     }
     100% {
+        visibility: visible;
         opacity: 1;
     }
 }
@@ -429,8 +445,22 @@ button.get-quote:hover {
 @keyframes ChangeOpacityOut {
     0% {
         opacity: 1;
+        visibility: visible;
     }
     100% {
+        visibility: hidden;
         opacity: 0;
+    }
+}
+
+@keyframes fadeOutIn {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

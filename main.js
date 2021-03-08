@@ -15,7 +15,8 @@ let state = {
     size: 0,
     users: 0,
     from: '',
-    to: ''
+    to: '',
+    theMatrix: false,
 }
 
 const setState = (key, value) => {
@@ -26,10 +27,9 @@ const toggleOpacityAnimation = (element, hide) => {
     if (hide) {
         element.classList.remove("animateOpacity");
         element.classList.add("animateOpacityOut");
-
     } else {
         element.classList.remove("animateOpacityOut");
-        element.classList.add("animateOpacity");
+        element.classList.add("animateOpacityIn");
     }
 
 };
@@ -52,14 +52,25 @@ const updatePricingBoxes = () => {
 
     pricingBoxes.forEach((box) => {
         let priceNumber = box.querySelector(".price");
+        let moveBotPrice = getMoveBotPricing();
+        let competitorPrice = getCompetitorPricing();
+
+
+        if (moveBotPrice > 9999) {
+            priceNumber.classList.add('small-price');
+        } else {
+            priceNumber.classList.remove('small-price');
+        }
+
+        competitorPrice = new Intl.NumberFormat().format(competitorPrice);
+        moveBotPrice = new Intl.NumberFormat().format(moveBotPrice);
 
         if (box.classList.contains("competitor")) {
-            let price = getCompetitorPricing();
-            setElementContent(priceNumber, "$" + price);
+            setElementContent(priceNumber, "$" + competitorPrice);
         } else {
-            let price = getMoveBotPricing();
-            setElementContent(priceNumber, "$" + price);
+            setElementContent(priceNumber, "$" + moveBotPrice);
         }
+
     });
 };
 
@@ -95,7 +106,6 @@ const renderBubblesByUser = () => {
             orgBubbles.forEach((bubble) => {
                 toggleOpacityAnimation(bubble, 'hide');
                 bubble.classList.add("hidden");
-
             });
             mspBubbles.forEach((bubble) => {
                 toggleOpacityAnimation(bubble, 'hide');
@@ -142,7 +152,7 @@ const renderBubblesByUser = () => {
             });
             mspBubbles.forEach((bubble) => {
                 toggleOpacityAnimation(bubble);
-                bubble.classList.remove("hidden")
+                bubble.classList.remove("hidden");
             });
             setAvatar();
             setCompetitor('CloudM', 'CloudFastPath');
@@ -153,25 +163,28 @@ const renderBubblesByUser = () => {
 
 const setAvatar = () => {
 
-    switch (state.userType) {
-        case 'select-person':
-            userAvatar.src = 'personas/sophie.svg'
-            botAvatar.src = 'personas/jim.svg'
-            break
-        case 'select-org':
-            userAvatar.src = 'personas/anne.svg'
-            botAvatar.src = 'personas/ted.svg'
-            break
-        case 'select-tech':
-        case 'select-msp':
-            userAvatar.src = 'personas/ollie.svg'
-            botAvatar.src = 'personas/jed.svg'
-            break
-        case 'the-matrix':
-            userAvatar.src = 'personas/neo.svg'
-            botAvatar.src = 'personas/morpheus.svg'
-            break
+    if (state.theMatrix) {
+        userAvatar.src = 'personas/morpheus.svg'
+        botAvatar.src = 'personas/neo.svg'
+    } else {
+        switch (state.userType) {
+            case 'select-person':
+                userAvatar.src = 'personas/sophie.svg'
+                botAvatar.src = 'personas/jim.svg'
+                break
+            case 'select-org':
+                userAvatar.src = 'personas/anne.svg'
+                botAvatar.src = 'personas/ted.svg'
+                break
+            case 'select-tech':
+            case 'select-msp':
+                userAvatar.src = 'personas/ollie.svg'
+                botAvatar.src = 'personas/jed.svg'
+                break
+        }
     }
+
+
 
 }
 
@@ -227,8 +240,11 @@ const renderTransferMethod = () => {
 const renderTheMatrix = () => {
 
     if (state.from === 'wasabi' || state.to === 'wasabi') {
-        setState('userType', 'the-matrix');
+        setState('theMatrix', true);
+    } else {
+        setState('theMatrix', false);
     }
+
     setAvatar();
 
 
